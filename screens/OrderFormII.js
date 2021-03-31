@@ -577,7 +577,15 @@ class OrderFormII extends React.Component {
     order.lineItems !== undefined &&
       order.lineItems.map(lineItem => {
         totalQuantity += lineItem.quantity;
+      })
+
+    order.lineItems !== undefined &&
+      order.lineItems?.sort((a, b) => {
+        let sort = ["OPEN", "IN_PROCESS", "ALREADY_IN_PROCESS", "DELIVERED", "SETTLED"];
+        return sort.indexOf(a.state) - sort.indexOf(b.state);
       });
+
+    console.log("testItems", order.lineItems)
 
     TimeAgo.addLocale(en);
     const timeAgo = new TimeAgo();

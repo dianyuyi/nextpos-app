@@ -435,7 +435,7 @@ class OrdersSummaryRow extends React.Component {
                 order.lineItems?.map((item) => {
                   return {...item, disableRightSwipe: !!item?.associatedLineItemId, disableLeftSwipe: !!item?.associatedLineItemId}
                 }).sort((a, b) => {
-                  let sort = ["OPEN", "ALREADY_IN_PROCESS", "DELIVERED", "SETTLED"];
+                  let sort = ["OPEN", "IN_PROCESS", "ALREADY_IN_PROCESS", "DELIVERED", "SETTLED"];
                   return sort.indexOf(a.state) - sort.indexOf(b.state);
                 })
               }
