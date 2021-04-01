@@ -98,8 +98,8 @@ class TablesScreen extends React.Component {
         joinTableMode: 'Join Table Mode',
         isPayingTitle: 'Order in Payment Mode',
         isPayingMsg: 'Proceed to enter payment screen.',
-        isMergingTitle: 'Two table orders will be merged',
-        isMergingMsg: 'Do you want to merge the order to the dragged target table?',
+        isMergingTitle: 'Merge Order',
+        isMergingMsg: 'Proceed with merging orders to the destination table?',
       },
       zh: {
         noTableLayout: '需要創建至少一個桌面跟一個桌位.',
@@ -834,7 +834,7 @@ class DraggableBase extends Component {
               {
                 text: `${t('action.yes')}`,
                 onPress: () => {
-                  this.handleMergeTable(table, this.state.tableOrder, toTable)
+                  this.handleMergeOrder(table, this.state.tableOrder, toTable)
                 }
               },
               {
@@ -890,7 +890,7 @@ class DraggableBase extends Component {
       }).then()
   }
 
-  handleMergeTable = (table, values, toTable) => {
+  handleMergeOrder = (table, values, toTable) => {
     const updateOrder = {}
     updateOrder.orderType = values.orderType
     updateOrder.tableIds = []

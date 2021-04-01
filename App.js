@@ -53,7 +53,7 @@ import * as ScreenOrientation from 'expo-screen-orientation';
 import {checkExpoUpdate} from "./helpers/updateAppHelper";
 import {api, dispatchFetchRequest} from './constants/Backend'
 
-export let localeLan = ""
+export let currentLocale = ""
 
 LogBox.ignoreLogs([
   'VirtualizedLists should never be nested', // TODO: Remove when fixed
@@ -243,7 +243,7 @@ export default class App extends React.Component {
 
     this.setState({locale: toLocale})
 
-    localeLan = toLocale
+    currentLocale = toLocale
   }
 
   t = (scope, options) => {
